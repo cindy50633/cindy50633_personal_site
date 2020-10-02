@@ -20,7 +20,7 @@
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
-            "Tutorial\\": "module/Tutorial/src/" 
+            "Tutorial\\": "module/Tutorial/src/"
         }
     },
     "autoload-dev": {
@@ -43,5 +43,8 @@
     },
     "require-dev": {
         "zendframework/zend-test": "^3.3"
+    },
+    "config": {
+        "process-timeout": 0
     }
 }

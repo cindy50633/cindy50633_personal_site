@@ -10,16 +10,9 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class IndexController extends AbstractActionController {
-    public function indexAction() {
+class GameController extends AbstractActionController {
+    public function gameAction() {
+        print('ohhh');
         return new ViewModel();
     }
-    public function aboutAction() {
-    }
-    public function linksAction() {
-    }
-    public function recommendAction() {
-    }
-    // public function aboutAction() {
-    // }
 }

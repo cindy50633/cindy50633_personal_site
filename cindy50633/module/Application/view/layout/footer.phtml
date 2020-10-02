@@ -1,0 +1,12 @@
+<footer>
+    <?php
+    $today = new DateTime('now');
+    $einsteinBirthday = new DateTime('1879-3-14');
+    $einsteinAge = date_diff($today, $einsteinBirthday);
+    ?>
+    <p id="footer-text">
+        Today is <?= $today->format('Y-m-d') ?>.
+        If Einstein were alive today,
+        he would be <?= $einsteinAge->format('%Y') ?> years old.
+    </p>
+</footer>

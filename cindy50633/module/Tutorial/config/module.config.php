@@ -29,4 +29,12 @@ return [
    'view_manager' => [
       'template_path_stack' => ['tutorial' => __DIR__ . '/../view',],
    ],
+   'view_helpers' => [
+       'aliases' => [
+          'testHelper' => View\Helper\TestHelper::class,
+       ],
+       'factories' => [
+          View\Helper\TestHelper::class => InvokableFactory::class,
+       ],
+    ],
 ];

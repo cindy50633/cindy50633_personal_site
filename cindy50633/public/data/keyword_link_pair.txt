@@ -1,0 +1,4 @@
+{
+    "Taiwan": "https://en.wikipedia.org/wiki/Bubble_tea",
+    "Einstein": "https://en.wikipedia.org/wiki/Albert_Einstein"
+}
