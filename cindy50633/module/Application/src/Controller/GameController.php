@@ -12,7 +12,7 @@ use Zend\View\Model\ViewModel;
 
 class GameController extends AbstractActionController {
     public function gameAction() {
-        print('ohhh');
+        print('in game');
         return new ViewModel();
     }
 }

@@ -1,0 +1,29 @@
+div.title-area {
+    margin-top: 25px;
+    margin-left: 120px;
+}
+h2.title-text {
+    text-align: left;
+    color: dimgrey;
+}
+div.content-area {
+    margin-top: 30px;
+    margin-left: 180px;
+    line-height: 1.2;
+    font-size: 18px;
+    color: grey;
+}
+/* a:link {
+  color: wheat;
+}
+a:visited {
+  color: tan;
+}
+a:hover {
+  color: wheat;
+  font-weight: bold;
+}
+a:active {
+  color: wheat;
+  font-weight: bold;
+} */

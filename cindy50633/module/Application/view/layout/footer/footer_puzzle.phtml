@@ -1,0 +1,28 @@
+<?php
+$yourLuckyNum = rand(0, 2);
+?>
+
+<?php
+if ($yourLuckyNum == 0) {
+    $today = new DateTime('now');
+    $einsteinBirthday = new DateTime('1879-3-14');
+    $einsteinAge = date_diff($today, $einsteinBirthday);
+?>
+    Today is <?= $today->format('Y-m-d') ?>.
+    If Einstein were alive today,
+    he would be <?= $einsteinAge->format('%Y') ?> years old.
+<?php } ?>
+
+<?php if ($yourLuckyNum == 1) { ?>
+    Do you know <b><i>Schrödinger's cat</i></b>?
+    You would not know if the cat was dead or alive until you opened the box.
+    <br/>
+    Mmmmmm... Why don't they use dogs for this thought experiment.
+<?php } ?>
+
+
+<?php if ($yourLuckyNum == 2) { ?>
+    Do you feel that Weekends always end faster than Weekdays?<br/>
+    These all credit on relativity........
+    You do know I'm just joking, right?
+<?php } ?>

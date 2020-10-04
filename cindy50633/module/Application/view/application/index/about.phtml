@@ -1,3 +1,23 @@
-<div>
-    <h2>Welcome to AboutQQ1</h2>
+<?php
+$targetTextPath = getcwd() . '/public/data/about_me.txt';
+$conditionsPath = getcwd() . '/public/data/keyword_link_pair.txt';
+$aboutDataText = $this->contentHelper($targetTextPath, $conditionsPath);
+$aboutDataArr = eval('return ' . $aboutDataText . ';');
+?>
+<div class="title-area">
+    <h2 class="title-text">About Me</h2>
+</div>
+<div class="content-area">
+    <?php foreach ($aboutDataArr as $titleArr => $itemArr) { ?>
+        <h4>
+            <?= $titleArr ?>
+        </h4>
+        <ul>
+            <?php foreach ($itemArr as $item) { ?>
+                <li>
+                    <?= $item ?>
+                </li>
+            <?php } ?>
+        </ul>
+    <?php } ?>
 </div>

@@ -1,0 +1,41 @@
+nav {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: black;
+}
+a.navbar-logo-area {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+span.navbar-logo-text {
+    font-size: 25px;
+    color: white;
+}
+div.navbar-header{
+    float: left;
+}
+ul.navbar-nav {
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+li.nav-item {
+    float: left;
+}
+a.nav-link {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 20px;
+    color: lightgrey;
+    text-decoration: none;
+}
+li.nav-item.active a.nav-link {
+    font-weight: bold;
+    color: white;
+}
