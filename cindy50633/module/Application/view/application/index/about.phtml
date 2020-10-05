@@ -9,12 +9,10 @@ $aboutDataArr = eval('return ' . $aboutDataText . ';');
 </div>
 <div class="content-area">
     <?php foreach ($aboutDataArr as $titleArr => $itemArr) { ?>
-        <h4>
-            <?= $titleArr ?>
-        </h4>
-        <ul>
+        <h4><?= $titleArr ?></h4>
+        <ul class="content">
             <?php foreach ($itemArr as $item) { ?>
-                <li>
+                <li class="content">
                     <?= $item ?>
                 </li>
             <?php } ?>

@@ -5,13 +5,3 @@
     margin-left: auto;
     margin-right: auto;
 }
-
-.sr-only-focusable:active, .sr-only-focusable:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
-  clip-path: none;
-}

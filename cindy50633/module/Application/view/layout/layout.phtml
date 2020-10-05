@@ -11,9 +11,16 @@
         ?>
 
         <!-- Le styles -->
+        <?php
+        if (basename($_SERVER['REQUEST_URI']) == 'game') {
+            $this->headLink()->prependStylesheet($this->basePath('css/game.css'));
+        }
+        ?>
         <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_smile.svg'])
             ->prependStylesheet($this->basePath('css/style.css'))
             ->prependStylesheet($this->basePath('css/header.css'))
+            ->prependStylesheet($this->basePath('css/content.css'))
+            ->prependStylesheet($this->basePath('css/footer.css'))
         ?>
 
         <!-- Scripts -->
@@ -26,6 +33,8 @@
         <?= $this->partial('header.phtml') ?>
         <div class="container">
             <?= $this->content ?>
+            <br/>
+            <br/>
             <hr>
             <?= $this->partial('footer/footer.phtml') ?>
         </div>

@@ -1,0 +1,14 @@
+[
+    "Github" => [
+        "You can find most of codes written in my own time here, including this site's codes."
+    ],
+    "Stack Overflow" => [
+        "The best site for asking and answering!"
+    ],
+    "LinkedIn" => [
+        "Feel free to contact me here anytime!"
+    ],
+    "Facebook" => [
+        "Oops, not for visitors."
+    ]
+]

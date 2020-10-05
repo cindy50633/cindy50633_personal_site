@@ -1,4 +1,4 @@
-<?= $this->headLink()->prependStylesheet($this->basePath('css/content.css')) ?>
+<?php $this->headLink()->prependStylesheet($this->basePath('css/content.css')) ?>
 <?php
 $currentUrlName = $_SERVER['REQUEST_URI'];
 if (!basename($currentUrlName)) {
@@ -22,10 +22,6 @@ $navbarDefArr = [
     'game' => [
         'urlKey' => 'game',
         'action' => 'game'
-    ],
-    'tutorial' => [
-        'urlKey' => 'tutorial',
-        'action' => 'index'
     ]
 ];
 ?>
@@ -45,10 +41,14 @@ $navbarDefArr = [
                     <li class="nav-item <?= ($urlName == $currentUrlName) ? 'active' : '' ?>">
                         <a class="nav-link" href="<?= $this->url($urlData['urlKey'], ['action' => $urlData['action']]) ?>">
                             <?= $urlName ?>
-                            <span class="sr-only"></span>
                         </a>
                     </li>
                 <?php } ?>
+                <li style="float:right;">
+                    <a class="nav-link">
+                        language &nbsp;
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

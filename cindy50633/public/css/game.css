@@ -1,6 +1,15 @@
-.horizontal-line{
-    width: 100%;
-    height: 47px;
-    border-bottom: 1px solid black;
-    position: absolute;
+.grid {
+  display: flex;                       /* establish flex container */
+  flex-wrap: wrap;                     /* enable flex items to wrap */
+  justify-content: space-around;
+
+}
+.cell {
+  flex: 0 0 32%;                       /* don't grow, don't shrink, width */
+  height: 50px;
+  margin-bottom: 5px;
+  background-color: #999;
+}
+.cell:nth-child(3n) {
+  background-color: #F00;
 }

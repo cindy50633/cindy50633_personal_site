@@ -1,9 +1,23 @@
+<?php
+$targetTextPath = getcwd() . '/public/data/links.txt';
+$conditionsPath = getcwd() . '/public/data/keyword_link_pair.txt';
+$linkDataText = $this->contentHelper($targetTextPath, $conditionsPath);
+$linkDataArr = eval('return ' . $linkDataText . ';');
+?>
 <div class="title-area">
     <h2 class="title-text">
-        Welcome to Links
+        Knowing Me More from Links!
     </h2>
 </div>
-
 <div class="content-area">
-
+    <?php foreach ($linkDataArr as $titleArr => $itemArr) { ?>
+        <b class="link-title">
+            <?= $titleArr ?>:
+        </b>
+        <ul class="content">
+            <li class="content">
+                <?= $itemArr[0] ?>
+            </li>
+        </ul>
+    <?php } ?>
 </div>

@@ -14,6 +14,5 @@ error_reporting(E_ALL);
 return [
     'Zend\Router',
     'Zend\Validator',
-    'Application',
-    'Tutorial'
+    'Application'
 ];
