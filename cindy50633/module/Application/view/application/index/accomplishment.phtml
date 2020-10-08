@@ -1,0 +1,19 @@
+<?php
+$targetTextPath = getcwd() . '/public/data/about_me.txt';
+$conditionsPath = getcwd() . '/public/data/keyword_link_pair.txt';
+$aboutDataText = $this->contentHelper($targetTextPath, $conditionsPath);
+$aboutDataArr = eval('return ' . $aboutDataText . ';');
+?>
+<div class="title-area">
+    <h2 class="title-text">My Accomplishment</h2>
+</div>
+<br/>
+<div class="content-area">
+    <h4>Data Visualization by Python</h4>
+    <br/><br/>
+    <img src="<?= $this->basePath('img/raw_csv.jpg') ?>" height="300"></img>
+    <br/><br/>
+    <img src="<?= $this->basePath('img/csv_result1.png') ?>" height="400"></img>
+    <br/><br/>
+    <img src="<?= $this->basePath('img/csv_result2.png') ?>" height="400"></img>
+</div>

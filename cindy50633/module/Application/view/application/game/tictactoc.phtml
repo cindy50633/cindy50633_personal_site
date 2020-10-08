@@ -1,0 +1,107 @@
+<div class="title-area">
+    <h2 class="title-text">Enjoy Mini Games!</h2>
+</div>
+<br/>
+<div  class="content-area">
+    <h4>You still have chance to win in current version!</h4>
+    <div class="grid">
+        <?php for ($index = 1; $index <= 9; $index++) { ?>
+            <div id="<?= $index ?>" class="cell" data-clicked="false"></div>
+        <? } ?>
+    </div>
+</div>
+
+<script>
+    var allPoints = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    var leftChoices = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    var rivalChoices = [];
+    var currentChoice;
+    var rivalChoice
+    $(function() {
+        $('.cell').on('click', function() {
+            if ($(this).attr('data-clicked') == 'false') {
+                rivalChoice = Number($(this).attr('id'));
+                rivalChoices.push(rivalChoice);
+                $(this).attr('data-clicked', 'true');
+                $(this).append('<div class="img-container"><img class="angel-img" src="<?= $this->basePath() . '/img/angel.svg' ?>/"></div>');
+                leftChoices = updateLeftChoices(leftChoices, rivalChoice);
+                currentChoice = getDefendChoice(rivalChoices, leftChoices);
+                if (currentChoice == -1) {
+                    alert('lose');
+                }
+                if (currentChoice == 0) {
+                    currentChoice = getAttackChoice(leftChoices);
+                }
+                if (currentChoice != -1) {
+                    $('#' + currentChoice).attr('data-clicked', 'true');
+                    $('#' + currentChoice).append('<div class="img-container"><img class="demon-img" src="<?= $this->basePath() . '/img/demon.svg' ?>/"></div>');
+                    leftChoices = updateLeftChoices(leftChoices, currentChoice);
+                }
+            }
+        });
+    });
+
+    function getDefendChoice(rivalChoices, leftChoices) {
+        var intersectChoice = [];
+        var horizontalWinSet = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ];
+        var verticalWinSet = [
+            [1, 4, 7],
+            [2, 5, 8],
+            [3, 6, 9]
+        ];
+        var diagonalWinSet = [
+            [1, 5, 9],
+            [3, 5, 7]
+        ];
+        var allWinSet = [
+            horizontalWinSet,
+            verticalWinSet,
+            diagonalWinSet
+        ];
+        for (var winSetIndex = 0; winSetIndex < 3; winSetIndex++) {
+            for (var i = 0; i < allWinSet[winSetIndex].length; i++) {
+                rivalChoiceIntersect = allWinSet[winSetIndex][i].filter(function(n) {
+                    return rivalChoices.indexOf(n) !== -1;
+                });
+                if (rivalChoiceIntersect.length == 3) {
+                    alert('I lose!');
+                    return -1;
+                }
+                if (rivalChoiceIntersect.length == 2) {
+                    choice = allWinSet[winSetIndex][i].filter(function(n) {
+                        return rivalChoiceIntersect.indexOf(n) === -1;
+                    });
+                    if (leftChoices.includes(choice[0])) {
+                        return choice;
+                    } else {
+                        continue;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+
+    function getAttackChoice(leftChoices) {
+        if (leftChoices.includes(5)) {
+            return 5;
+        } else {
+            return leftChoices[0];
+        }
+    }
+
+    function updateLeftChoices(leftChoices, targetValue) {
+
+        for (var i = 0; i < leftChoices.length; i++) {
+            if (leftChoices[i] == targetValue) {
+                leftChoices.splice(i, 1);
+                break;
+            }
+        }
+        return leftChoices;
+    }
+</script>

@@ -35,9 +35,9 @@ return [
                 ],
             ],
             'game' => [
-                'type'    => Literal::class,
+                'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/game',
+                    'route'    => '/game[/:action]',
                     'defaults' => [
                         'controller' => Controller\GameController::class,
                         'action'     => 'game',
@@ -53,6 +53,7 @@ return [
         ],
     ],
     'view_manager' => [
+        // 'base_path' => __DIR__ . '/../../../public',
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
         'doctype'                  => 'HTML5',

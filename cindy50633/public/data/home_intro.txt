@@ -1,7 +1,9 @@
 Hello, I'm Cindy, coming from Taiwan!
 
 I am good at python,
-especially deal data calculation with python.
+especially deal with data calculation by python.
+
+I am still not a pro, but on my way to pro!
 
 By the way, I majored in physics during my college.
 Thus, you might find out some interesting physics knowledge in some hidden places.

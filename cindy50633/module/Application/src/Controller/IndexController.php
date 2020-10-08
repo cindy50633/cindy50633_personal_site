@@ -12,6 +12,7 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController {
     public function indexAction() {
+        // print('in index');
         return new ViewModel();
     }
     public function aboutAction() {
@@ -19,6 +20,8 @@ class IndexController extends AbstractActionController {
     public function linksAction() {
     }
     public function recommendAction() {
+    }
+    public function accomplishmentAction() {
     }
     // public function aboutAction() {
     // }

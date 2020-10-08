@@ -1,5 +1,5 @@
 <?= $this->doctype() ?>
-
+<?//='QQQQQQQQQQ1'?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -10,15 +10,24 @@
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
 
+<?//='QQQQQQQQQQ2'?>
         <!-- Le styles -->
         <?php
-        if (basename($_SERVER['REQUEST_URI']) == 'game') {
-            $this->headLink()->prependStylesheet($this->basePath('css/game.css'));
+        if (basename(dirname($_SERVER['REQUEST_URI'])) == 'game') {
+            $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_smile.svg'])
+                ->prependStylesheet($this->basePath('css/game.css'));
+            // $this->inlineScript()
+            //     ->prependFile($this->basePath('js/life.js'));
+        }
+        if (basename($_SERVER['REQUEST_URI']) == 'tictactoc') {
+            $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_smile.svg'])
+                ->prependStylesheet($this->basePath('css/game.css'));
         }
         ?>
+        <?//='QQQQQQQQQQ3'?>
         <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_smile.svg'])
             ->prependStylesheet($this->basePath('css/style.css'))
-            ->prependStylesheet($this->basePath('css/header.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
             ->prependStylesheet($this->basePath('css/content.css'))
             ->prependStylesheet($this->basePath('css/footer.css'))
         ?>

@@ -12,7 +12,19 @@ use Zend\View\Model\ViewModel;
 
 class GameController extends AbstractActionController {
     public function gameAction() {
-        print('in game');
-        return new ViewModel();
+        // $this->view->setBasePath();
+        return new ViewModel([
+            'place' => 'in game'
+            ]
+        );
+    }
+    public function tictactocAction() {
+        // $this->view->setBasePath();
+        return new ViewModel([
+            'place' => 'in game'
+            ]
+        );
+    }
+    public function gameoflifeAction() {
     }
 }

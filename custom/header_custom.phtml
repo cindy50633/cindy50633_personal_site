@@ -1,0 +1,69 @@
+<?php
+$supportedLanguageArr = ['language', 'English', 'Japanese', 'Chinese'];
+
+$currentUrlName = $_SERVER['REQUEST_URI'];
+if (!basename($currentUrlName)) {
+    $currentUrlName = 'home';
+} else {
+    $currentUrlName = basename($currentUrlName);
+}
+$navbarDefArr = [
+    'home' => [
+        'urlKey' => 'home',
+        'action' => 'index'
+    ],
+    'about' => [
+        'urlKey' => 'application',
+        'action' => 'about'
+    ],
+    'links' => [
+        'urlKey' => 'application',
+        'action' => 'links'
+    ],
+    'game' => [
+        'urlKey' => 'game',
+        'action' => 'game'
+    ]
+];
+?>
+
+<nav role="navigation">
+    <div class="navbar-area">
+        <div class="navbar-header">
+            <a class="navbar-logo-area" href="<?= $this->url('home') ?>">
+                &nbsp;&nbsp;&nbsp;
+                <img src="<?= $this->basePath('img/navbar_smile.svg') ?>" height="50" alt="Cindy's Website"/>
+                <span class="navbar-logo-text">Cindy's Website</span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <?php foreach ($navbarDefArr as $urlName => $urlData) { ?>
+                    <li class="nav-item <?= ($urlName == $currentUrlName) ? 'active' : '' ?>">
+                        <a class="nav-link" href="<?= $this->url($urlData['urlKey'], ['action' => $urlData['action']]) ?>">
+                            <?= $urlName ?>
+                        </a>
+                    </li>
+                <?php } ?>
+                <ul class="lang-btn">
+                    <?php foreach ($supportedLanguageArr as $supportedLanguage) { ?>
+                        <li class="lang-btn">
+                            <a class="nav-link" href="javascript:void(0);">
+                                <?= $supportedLanguage ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+    $(function() {
+        $('.lang-btn').on('click', function() {
+            $('.lang-btn').css('visibility', 'visible');
+            // $(this).closest('.nav-item').addClass('active');
+        });
+    });
+</script>
