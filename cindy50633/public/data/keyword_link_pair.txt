@@ -1,5 +1,9 @@
 {
     "Taiwan": "https://en.wikipedia.org/wiki/Bubble_tea",
+    "台湾": "https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%94%E3%82%AA%E3%82%AB%E3%83%86%E3%82%A3%E3%83%BC",
+    "桃園": "https://zh.wikipedia.org/wiki/%E8%8A%B1%E7%94%9F%E7%B3%96",
     "Einstein": "https://en.wikipedia.org/wiki/Albert_Einstein",
-    "pompompurin": "https://www.sanrio.com/categories/pompompurin"
+    "pompompurin": "https://www.sanrio.com/categories/pompompurin",
+    "Github": "https://github.com/cindy50633",
+    "Stack Overflow": "https://stackoverflow.com/"
 }

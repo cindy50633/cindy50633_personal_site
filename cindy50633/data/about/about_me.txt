@@ -1,8 +1,0 @@
-Hello, I'm Cindy, coming from Taiwan!
-
-I am good at python,
-especially deal data calculation with python.
-
-By the way, I majored in physics during my college.
-Thus, you might find out some interesting physics knowledge in some hidden places.
-Try to find out all of them!

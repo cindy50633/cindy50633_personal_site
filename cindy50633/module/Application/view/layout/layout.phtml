@@ -1,6 +1,6 @@
 <?= $this->doctype() ?>
-<?//='QQQQQQQQQQ1'?>
-<html lang="en">
+
+<html lang="<?= $this->langFlag ?>">
     <head>
         <meta charset="utf-8">
         <?= $this->headTitle('cindy50633')->setSeparator(' - ')->setAutoEscape(false) ?>
@@ -10,7 +10,6 @@
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
 
-<?//='QQQQQQQQQQ2'?>
         <!-- Le styles -->
         <?php
         if (basename(dirname($_SERVER['REQUEST_URI'])) == 'game') {
@@ -19,12 +18,12 @@
             // $this->inlineScript()
             //     ->prependFile($this->basePath('js/life.js'));
         }
-        if (basename($_SERVER['REQUEST_URI']) == 'tictactoc') {
+        if (basename($_SERVER['REQUEST_URI']) == 'tictactoe') {
             $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_smile.svg'])
                 ->prependStylesheet($this->basePath('css/game.css'));
         }
         ?>
-        <?//='QQQQQQQQQQ3'?>
+
         <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_smile.svg'])
             ->prependStylesheet($this->basePath('css/style.css'))
             ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
@@ -39,7 +38,7 @@
         ?>
     </head>
     <body>
-        <?= $this->partial('header.phtml') ?>
+        <?= $this->partial('header/header.phtml') ?>
         <div class="container">
             <?= $this->content ?>
             <br/>

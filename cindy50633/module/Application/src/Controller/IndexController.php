@@ -9,20 +9,45 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\View\Renderer\PhpRenderer;
+use Zend\View\Resolver;
+use Common\CommonController;
 
 class IndexController extends AbstractActionController {
+    public function __construct() {
+        $this->langFlag = CommonController::getUserLanguage();
+    }
     public function indexAction() {
-        // print('in index');
-        return new ViewModel();
+        $this->layout()->langFlag = $this->langFlag;
+        $view = new ViewModel([
+            'langFlag' => $this->langFlag
+        ]);
+        // $view->setTemplate('/application/index/about/ja/index.phtml');
+        // $this->_helper->viewRenderer('/about/ja/index.phtml');
+        return $view;
     }
     public function aboutAction() {
+        $this->layout()->langFlag = $this->langFlag;
+        return new ViewModel([
+            'langFlag' => $this->langFlag
+        ]);
     }
     public function linksAction() {
+        $this->layout()->langFlag = $this->langFlag;
+        return new ViewModel([
+            'langFlag' => $this->langFlag
+        ]);
     }
     public function recommendAction() {
+        $this->layout()->langFlag = $this->langFlag;
+        return new ViewModel([
+            'langFlag' => $this->langFlag
+        ]);
     }
     public function accomplishmentAction() {
+        $this->layout()->langFlag = $this->langFlag;
+        return new ViewModel([
+            'langFlag' => $this->langFlag
+        ]);
     }
-    // public function aboutAction() {
-    // }
 }

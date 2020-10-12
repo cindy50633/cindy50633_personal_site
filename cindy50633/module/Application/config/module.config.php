@@ -9,38 +9,53 @@ namespace Application;
 
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
+// use Zend\Mvc\Router\Http\Regex;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
     'router' => [
         'routes' => [
             'home' => [
-                'type'    => Literal::class,
+                'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/',
+                    'route'    => '/index[/:lang][/:end]',
+                    'constraints' => [
+                        'lang' => 'ja||en||zh',
+                        'end' => '/*'
+                    ],
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
+                        // 'action'     => 'index'
                     ],
                 ],
             ],
             'application' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '[/:action]',
+                    'route'    => '[/:action][/:lang][/:end]',
+                    'constraints' => [
+                        'lang' => 'ja||en||zh',
+                        'end' => '/*'
+                    ],
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
+                        'action' => 'index',
+                        // 'lang' => 'en'
                     ],
                 ],
             ],
             'game' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/game[/:action]',
+                    'route'    => '/game[/:action][/:lang][/:end]',
+                    'constraints' => [
+                        'lang' => 'ja||en||zh',
+                        'end' => '/*'
+                    ],
                     'defaults' => [
                         'controller' => Controller\GameController::class,
-                        'action'     => 'game',
+                        'action' => 'game',
+                        // 'lang' => 'en'
                     ],
                 ],
             ],

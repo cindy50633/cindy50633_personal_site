@@ -9,22 +9,28 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Common\CommonController;
 
 class GameController extends AbstractActionController {
-    public function gameAction() {
-        // $this->view->setBasePath();
-        return new ViewModel([
-            'place' => 'in game'
-            ]
-        );
+    public function __construct() {
+        $this->langFlag = CommonController::getUserLanguage();
     }
-    public function tictactocAction() {
-        // $this->view->setBasePath();
+    public function gameAction() {
+        $this->layout()->langFlag = $this->langFlag;
         return new ViewModel([
-            'place' => 'in game'
-            ]
-        );
+            'langFlag' => $this->langFlag
+        ]);
+    }
+    public function tictactoeAction() {
+        $this->layout()->langFlag = $this->langFlag;
+        return new ViewModel([
+            'langFlag' => $this->langFlag
+        ]);
     }
     public function gameoflifeAction() {
+        $this->layout()->langFlag = $this->langFlag;
+        return new ViewModel([
+            'langFlag' => $this->langFlag
+        ]);
     }
 }

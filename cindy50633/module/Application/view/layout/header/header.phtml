@@ -1,0 +1,63 @@
+<?php
+use Common\CommonController;
+require_once getcwd() . '/module/Application/view/layout/view_lang_define/layout_define.php';
+require_once 'header_preprocess.php';
+?>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="<?= $this->url('home', ['action' => 'index', 'lang' => $this->langFlag]) ?>">
+                <img src="<?= $this->basePath('img/navbar_smile.svg') ?>" height="28" alt="Cindy's Website"/>
+                &nbsp;
+                Cindy's Website
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <?php foreach ($navbarDefArr as $urlKey => $urlData) { ?>
+                    <li class="nav-item <?= ($urlKey == CommonController::getCurrentPage()) ? 'active' : '' ?>">
+                        <a class="nav-link" href="<?= $this->url($urlData['urlRoute'], ['action' => $urlData['action'], 'lang' => $this->langFlag]) ?>">
+                            <?= $navbarDefine[$urlKey][$this->langFlag] ?>
+                        </a>
+                    </li>
+                <?php } ?>
+                <li class="nav-item <?= (CommonController::getCurrentPage() == 'game') ? 'active' : '' ?> dropdown">
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?= $dropDownDefine['game'][$this->langFlag] ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <?php foreach ($gameArr as $gameKey) { ?>
+                            <a class="dropdown-item" href="<?= $this->url('game', ['action' => $gameKey, 'lang' => $this->langFlag]) ?>">
+                                <?= $gameNameDefine[$gameKey][$this->langFlag] ?>
+                            </a>
+                        <?php } ?>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?= $dropDownDefine['language'][$this->langFlag] ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <?php foreach ($supportedLanguageArr as $supportedLangFlag => $supportedLanguage) { ?>
+                            <a class="dropdown-item" href="<?= CommonController::replaceLastSubstr(CommonController::getUserLanguage(), $supportedLangFlag, $_SERVER['REQUEST_URI']) ?>">
+                                <?= $supportedLanguage ?>
+                            </a>
+                        <?php } ?>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+    $(function() {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>

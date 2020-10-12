@@ -1,11 +1,12 @@
 <?php
-$targetTextPath = getcwd() . '/public/data/home_intro.txt';
+require_once 'view_lang_define/content_define.php';
+$targetTextPath = getcwd() . '/public/data/' . $this->langFlag . '/home_intro.txt';
 $conditionsPath = getcwd() . '/public/data/keyword_link_pair.txt';
 ?>
 
 <div class="title-area">
     <h2 class="title-text">
-        Welcome to <span>Cindy's Website</span>
+        <?= $indexTitle[$this->langFlag] ?>
     </h2>
 </div>
 <br/>
