@@ -1,6 +1,8 @@
 <?php
 namespace Common;
 
+use Laminas\Mail;
+
 class CommonController {
     public static function getUserLanguage() {
         $currentUrl = $_SERVER['REQUEST_URI'];
@@ -28,5 +30,15 @@ class CommonController {
             $currentPage = 'home';
         }
         return $currentPage;
+    }
+
+    public static function sendMail($toAdress, $toName, $mailDataArr) {
+        $mail = new Mail\Message();
+        $mail->setBody($mailDataArr);
+        $mail->setFrom('Freeaqingme@example.org', "Sender's name");
+        $mail->addTo($toAdress, $toName);
+        $mail->setSubject('TestSubject');
+        $transport = new Mail\Transport\Sendmail();
+        $transport->send($mail);
     }
 }

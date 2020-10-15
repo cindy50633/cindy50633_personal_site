@@ -1,0 +1,85 @@
+<?php
+require_once getcwd() . '/module/Application/view/layout/view_lang_define/footer_form_define.php';
+?>
+
+<div class="modal fade" id="mailFormModal" tabindex="-1" role="dialog" aria-labelledby="mailFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mailFormModalLabel">
+                    <?= $formTitle[$this->langFlag] ?>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="#" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipientName" class="col-form-label">
+                            <?= $recipientTitle[$this->langFlag] ?>
+                        </label>
+                        <input type="text" class="form-control" id="recipientName" disabled value="Cindy Yang">
+                    </div>
+                    <div class="form-group">
+                        <label for="mailReason" class="col-form-label">
+                            <?= $mailReasonTitle[$this->langFlag] ?>
+                        </label>
+                        <select id="mailReason" name="mailReason[]" class="form-control">
+                            <?php foreach ($mailReasonOptions[$this->langFlag] as $mailReasonOptionKey => $mailReasonOption) { ?>
+                                <option value=<?= $mailReasonOptionKey ?>><?= $mailReasonOption ?></option>
+                            <? } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="messageText" class="col-form-label">
+                            <?= $messageTitle[$this->langFlag] ?>
+                        </label>
+                        <textarea class="form-control placeholder-light" id="messageText" name="messageText" placeholder="<?= $messagePlaceholder[$this->langFlag] ?>" style="height:250px;"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <?= $closeBtn[$this->langFlag] ?>
+                        </button>
+                    <button type="submit" id="sendBtn" class="btn btn-primary">
+                        <?= $sendBtn[$this->langFlag] ?>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function checkForm() {
+        let errorFlag = false;
+        if ($('#mailReason').val() == '') {
+            $('#mailReason').addClass('bg-danger text-light');
+            errorFlag = true;
+        }
+        if ($('#messageText').val().trim() == '') {
+            $('#messageText').addClass('bg-danger placeholder-light');
+            errorFlag = true;
+        }
+        if (errorFlag) {
+            return false;
+        }
+        return true;
+    }
+
+    $(function () {
+        $('#sendBtn').on('click', function() {
+            return checkForm();
+        });
+        $('#mailReason').on('click', function() {
+            if ($('#mailReason').val() != '') {
+                $('#mailReason').removeClass('bg-danger text-light');
+            }
+        });
+        $('#messageText').on('keyup', function() {
+            $('#messageText').removeClass('bg-danger placeholder-light');
+        });
+    });
+</script>

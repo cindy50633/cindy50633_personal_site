@@ -1,5 +1,72 @@
+<?php
+use Common\CommonController;
+require_once 'mail_form_modal.phtml';
+require_once getcwd() . '/module/Application/view/layout/view_lang_define/footer_define.php';
+if($_POST) {
+    CommonController::sendMail('cindy50633@gmail.com', 'Cindy Yang', 'testttt');
+    print_r($_POST);
+    echo "alert('QWQQQQQ')";
+}
+?>
+
+<span class="fixed-contact-bottom">
+    <div class="btn-group" role="group" aria-label="Contact Button Group">
+        <button type="button" class="popup btn btn-secondary" onclick="popup()">
+            <?= $contactBottomTitle[$this->langFlag] ?>
+            <span class="popuptext" id="popup-area">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <a class="icon" href="http://m.me/cindy50633" target="_blank">
+                        <i class="fab fa-facebook-square ml-3 mr-2" style="font-size:36px"></i>
+                    </a>
+                    <a class="icon" href="https://www.linkedin.com/in/cindy-yang-05b1b237" target="_blank">
+                        <i class="fab fa-linkedin mx-2" style="font-size:36px"></i>
+                    </a>
+                    <a class="icon" href="javascript:void(0);" data-toggle="modal" data-target="#mailFormModal" data-whatever="cindy50633@gmail.com">
+                    <i class="fas fa-envelope-square ml-2 mr-3" style="font-size:36px"></i>
+                    </a>
+                </div>
+            </span>
+        </button>
+        <button id="myGithub" type="button" class="btn btn-secondary p-1" data-toggle="tooltip" data-placement="bottom" title="Github">
+            <a class="icon" href="https://github.com/cindy50633" target="_blank">
+                <i class="fab fa-github" style="font-size:45px"></i>
+            </a>
+        </button>
+    </div>
+</span>
+
 <footer>
     <p id="footer-text">
-        <? require_once 'footer_puzzle.phtml' ?>
+        <?php require_once 'footer_puzzle.phtml'; ?>
     </p>
 </footer>
+
+
+<script>
+
+    function popup() {
+        $('#popup-area').toggleClass("show");
+    }
+
+    $(document).mouseup(function(e) {
+        var $contactBottom = $('.fixed-contact-bottom');
+        // if the target of the click isn't the $popupBtn nor a descendant of the $popupBtn
+        if (!$contactBottom.is(e.target) && $contactBottom.has(e.target).length === 0) {
+            $('#popup-area').removeClass("show");
+        }
+    });
+
+    // $('#mailFormModal').on('show.bs.modal', function (event) {
+    //   var button = $(event.relatedTarget) // Button that triggered the modal
+    //   var recipient = button.data('whatever') // Extract info from data-* attributes
+    //   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    //   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    //   var modal = $(this)
+    //   modal.find('.modal-title').text('New message to ' + recipient)
+    //   modal.find('.modal-body input').val(recipient)
+    // })
+
+    $(function () {
+        $('#myGithub').tooltip();
+    });
+</script>

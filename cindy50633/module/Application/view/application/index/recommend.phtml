@@ -1,0 +1,27 @@
+<?php
+$targetTextPath = getcwd() . '/public/data/recommend.txt';
+$conditionsPath = getcwd() . '/public/data/keyword_link_pair.txt';
+$linkDataText = $this->contentHelper($targetTextPath, $conditionsPath);
+$linkDataArr = eval('return ' . $linkDataText . ';');
+?>
+<br/>
+<ul class="nav nav-tabs" id="recommendTab" role="tablist">
+    <?php foreach ($linkDataArr as $titleArr => $itemArr) { ?>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#<?= $titleArr ?>" role="tab" href="#">
+                <?= $titleArr ?>
+            </a>
+          </li>
+      <?php } ?>
+</ul>
+<div class="tab-content" id="recommendTabContent">
+    <?php foreach ($linkDataArr as $titleArr => $itemArr) { ?>
+        <div class="tab-pane fade" id="<?= $titleArr ?>" role="tabpanel">
+            <?= $itemArr[0] ?>
+        </div>
+    <?php } ?>
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">default</div>
+    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">home</div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">profile</div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">contact</div>
+</div>

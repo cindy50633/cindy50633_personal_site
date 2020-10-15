@@ -52,4 +52,9 @@ $navbarDefine = [
         'ja' => 'リンク',
         'zh' => '連結'
     ],
+     'recommend' => [
+         'en' => 'recommended resources',
+         'ja' => '推薦サイト・文献',
+         'zh' => '推薦資源'
+     ]
 ];

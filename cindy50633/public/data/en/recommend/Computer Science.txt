@@ -1,0 +1,21 @@
+[
+    "Neso Academy" => [
+        "You can learn a lot of knowledge by just checking these short videos!
+        From programming, data structure to discrete mathematics~
+        Of course, for free!"
+    ],
+    "Abdul Bari's Channel" => [
+        "If you want feel algorithm is a high wall you cannot cross,
+        you must check Abdul's channel!
+        He explains all those deep concepts with simple synonyms!"
+    ],
+    "" => [
+        ""
+    ],
+    "" => [
+        ""
+    ],
+    "" => [
+        ""
+    ]
+]

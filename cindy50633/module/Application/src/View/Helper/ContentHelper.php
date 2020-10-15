@@ -1,6 +1,6 @@
 <?php
 namespace Application\View\Helper;
-use Zend\View\Helper\AbstractHelper;
+use Laminas\View\Helper\AbstractHelper;
 class ContentHelper extends AbstractHelper {
     public function __invoke($targetTextPath, $conditionsPath, $cssClass='') {
        $output = "I am from test helper";

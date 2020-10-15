@@ -2,9 +2,9 @@
 print(__DIR__);
 require __DIR__ . '/vendor/autoload.php';
 
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\EventManager;
-use Zend\EventManager\EventManagerAwareInterface;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\EventManager\EventManager;
+use Laminas\EventManager\EventManagerAwareInterface;
 
 class Greeter implements EventManagerAwareInterface {
    protected $events;

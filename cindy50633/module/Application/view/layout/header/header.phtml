@@ -1,6 +1,6 @@
 <?php
 use Common\CommonController;
-require_once getcwd() . '/module/Application/view/layout/view_lang_define/layout_define.php';
+require_once getcwd() . '/module/Application/view/layout/view_lang_define/header_define.php';
 require_once 'header_preprocess.php';
 ?>
 
@@ -39,6 +39,11 @@ require_once 'header_preprocess.php';
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item <?= ('recommend' == CommonController::getCurrentPage()) ? 'active' : '' ?>">
+                    <a class="nav-link" href="<?= $this->url('application', ['action' => 'recommend', 'lang' => $this->langFlag]) ?>">
+                        <?= $navbarDefine['recommend'][$this->langFlag] ?>
+                    </a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= $dropDownDefine['language'][$this->langFlag] ?>

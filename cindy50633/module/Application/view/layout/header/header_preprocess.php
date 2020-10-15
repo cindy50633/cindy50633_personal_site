@@ -16,12 +16,16 @@ $navbarDefArr = [
         'urlRoute' => 'application',
         'action' => 'about'
     ],
+    // 'recommend' => [
+    //     'urlRoute' => 'application',
+    //     'action' => 'recommend'
+    // ],
     'accomplishment' => [
         'urlRoute' => 'application',
         'action' => 'accomplishment'
     ],
-    'links' => [
-        'urlRoute' => 'application',
-        'action' => 'links'
-    ]
+    // 'links' => [
+    //     'urlRoute' => 'application',
+    //     'action' => 'links'
+    // ],
 ];
