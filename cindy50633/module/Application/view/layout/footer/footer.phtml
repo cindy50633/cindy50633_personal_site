@@ -1,12 +1,7 @@
 <?php
 use Common\CommonController;
-require_once 'mail_form_modal.phtml';
 require_once getcwd() . '/module/Application/view/layout/view_lang_define/footer_define.php';
-if($_POST) {
-    CommonController::sendMail('cindy50633@gmail.com', 'Cindy Yang', 'testttt');
-    print_r($_POST);
-    echo "alert('QWQQQQQ')";
-}
+require_once 'footer_form_modal.phtml';
 ?>
 
 <span class="fixed-contact-bottom">
@@ -15,22 +10,30 @@ if($_POST) {
             <?= $contactBottomTitle[$this->langFlag] ?>
             <span class="popuptext" id="popup-area">
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <a class="icon" href="http://m.me/cindy50633" target="_blank">
-                        <i class="fab fa-facebook-square ml-3 mr-2" style="font-size:36px"></i>
-                    </a>
-                    <a class="icon" href="https://www.linkedin.com/in/cindy-yang-05b1b237" target="_blank">
-                        <i class="fab fa-linkedin mx-2" style="font-size:36px"></i>
-                    </a>
-                    <a class="icon" href="javascript:void(0);" data-toggle="modal" data-target="#mailFormModal" data-whatever="cindy50633@gmail.com">
-                    <i class="fas fa-envelope-square ml-2 mr-3" style="font-size:36px"></i>
-                    </a>
+                    <span class="contact-icon-group" data-toggle="tooltip" data-placement="top" title="Facebook">
+                        <a class="icon" href="http://m.me/cindy50633" target="_blank">
+                            <i class="fab fa-facebook-square contact-icon-group ml-3 mr-2" style="font-size:36px"></i>
+                        </a>
+                    </span>
+                    <span class="contact-icon-group" data-toggle="tooltip" data-placement="top" title="Linkedin">
+                        <a class="icon" href="https://www.linkedin.com/in/cindy-yang-05b1b237" target="_blank">
+                            <i class="fab fa-linkedin contact-icon-group mx-2" style="font-size:36px"></i>
+                        </a>
+                    </span>
+                    <span class="contact-icon-group" data-toggle="tooltip" data-placement="top" title="Mail">
+                        <a class="icon" href="javascript:void(0);" data-toggle="modal" data-target="#mailFormModal" data-whatever="cindy50633@gmail.com">
+                            <i class="fas fa-envelope-square ml-2 mr-3" style="font-size:36px"></i>
+                        </a>
+                    </span>
                 </div>
             </span>
         </button>
-        <button id="myGithub" type="button" class="btn btn-secondary p-1" data-toggle="tooltip" data-placement="bottom" title="Github">
-            <a class="icon" href="https://github.com/cindy50633" target="_blank">
-                <i class="fab fa-github" style="font-size:45px"></i>
-            </a>
+        <button type="button" class="btn btn-secondary p-1">
+            <span class="contact-icon-group" data-toggle="tooltip" data-placement="bottom" title="Github">
+                <a class="icon" href="https://github.com/cindy50633" target="_blank">
+                    <i class="fab fa-github" style="font-size:45px"></i>
+                </a>
+            </span>
         </button>
     </div>
 </span>
@@ -67,6 +70,7 @@ if($_POST) {
     // })
 
     $(function () {
-        $('#myGithub').tooltip();
+        // $('#myGithub').tooltip();
+        $('.contact-icon-group').tooltip();
     });
 </script>

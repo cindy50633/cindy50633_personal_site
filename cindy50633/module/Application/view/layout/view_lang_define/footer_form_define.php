@@ -6,20 +6,32 @@ $formTitle = [
 ];
 
 $recipientTitle = [
-    'en' => 'Recipient:',
+    'en' => 'Recipient: ',
     'ja' => '宛名：',
-    'zh' => '收信人:'
+    'zh' => '收信人：'
+];
+
+$senderTitle = [
+    'en' => 'Your Name or Nickname:',
+    'ja' => 'あなたの名前又はニックネーム：',
+    'zh' => '你的名字或暱稱：'
+];
+
+$senderMailTitle = [
+    'en' => 'Your email:',
+    'ja' => '送信元：',
+    'zh' => '聯絡信箱：'
 ];
 
 $mailReasonTitle = [
-    'en' => 'Reason:',
-    'ja' => '理由：',
-    'zh' => '目的:'
+    'en' => 'Contact Reason:',
+    'ja' => '連絡理由：',
+    'zh' => '連絡目的：'
 ];
 
 $mailReasonOptions = [
     'en' => [
-        '' => 'Choose...',
+        '' => 'Please Choose',
         '1' => 'I want to introduce Cindy a job!',
         '2' => 'I have a project for Cindy!',
         '3' => 'I just want to chat with Cindy!!!'
@@ -41,7 +53,7 @@ $mailReasonOptions = [
 $messageTitle = [
     'en' => 'Message:',
     'ja' => 'メッセージ：',
-    'zh' => '訊息:'
+    'zh' => '訊息：'
 ];
 
 $messagePlaceholder = [

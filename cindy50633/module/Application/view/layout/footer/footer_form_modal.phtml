@@ -15,27 +15,39 @@ require_once getcwd() . '/module/Application/view/layout/view_lang_define/footer
             </div>
             <form action="#" method="post">
                 <div class="modal-body">
-                    <div class="form-group">
+                    <div class="form-group input-group">
                         <label for="recipientName" class="col-form-label">
                             <?= $recipientTitle[$this->langFlag] ?>
                         </label>
-                        <input type="text" class="form-control" id="recipientName" disabled value="Cindy Yang">
+                        &nbsp;
+                        <input type="text" class="form-control" id="recipientName" readonly value="Cindy Yang">
                     </div>
+                    <br/>
                     <div class="form-group">
+                        <label for="senderName" class="col-form-label">
+                            <?= $senderTitle[$this->langFlag] ?>
+                        </label>
+                        &nbsp;
+                        <input type="text" class="form-control" id="senderName" name="senderName">
+                        <label for="senderMail" class="col-form-label">
+                            <?= $senderMailTitle[$this->langFlag] ?>
+                        </label>
+                        &nbsp;
+                        <input type="text" class="form-control" id="senderMail" name="senderMail">
                         <label for="mailReason" class="col-form-label">
                             <?= $mailReasonTitle[$this->langFlag] ?>
                         </label>
-                        <select id="mailReason" name="mailReason[]" class="form-control">
+                        &nbsp;
+                        <select id="mailReason" name="mailReason" class="form-control">
                             <?php foreach ($mailReasonOptions[$this->langFlag] as $mailReasonOptionKey => $mailReasonOption) { ?>
                                 <option value=<?= $mailReasonOptionKey ?>><?= $mailReasonOption ?></option>
                             <? } ?>
                         </select>
-                    </div>
-                    <div class="form-group">
                         <label for="messageText" class="col-form-label">
                             <?= $messageTitle[$this->langFlag] ?>
                         </label>
-                        <textarea class="form-control placeholder-light" id="messageText" name="messageText" placeholder="<?= $messagePlaceholder[$this->langFlag] ?>" style="height:250px;"></textarea>
+                        &nbsp;
+                        <textarea class="form-control placeholder-light" id="messageText" name="messageText" placeholder="<?= $messagePlaceholder[$this->langFlag] ?>" style="height:200px;"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -52,7 +64,6 @@ require_once getcwd() . '/module/Application/view/layout/view_lang_define/footer
 </div>
 
 <script>
-
     function checkForm() {
         let errorFlag = false;
         if ($('#mailReason').val() == '') {

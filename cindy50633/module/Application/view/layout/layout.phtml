@@ -1,5 +1,11 @@
 <?= $this->doctype() ?>
-
+<?php
+if ($_SERVER['REQUEST_URI'] == '/') {
+    header('Location:' . '/index');
+    exit();
+}
+require_once 'footer/footer_form_process.php';
+?>
 <html lang="<?= $this->langFlag ?>">
     <head>
         <meta charset="utf-8">

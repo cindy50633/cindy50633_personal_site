@@ -5,5 +5,7 @@
     "Einstein": "https://en.wikipedia.org/wiki/Albert_Einstein",
     "pompompurin": "https://www.sanrio.com/categories/pompompurin",
     "Github": "https://github.com/cindy50633",
-    "Stack Overflow": "https://stackoverflow.com/"
+    "Stack Overflow": "https://stackoverflow.com/",
+    "ポムポムプリン", "https://www.sanrio.co.jp/character/pompompurin/",
+    "アインシュタイン", "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3"
 }

@@ -2,6 +2,7 @@
 namespace Common;
 
 use Laminas\Mail;
+use Laminas\Mail\Transport\Sendmail as SendmailTransport;
 
 class CommonController {
     public static function getUserLanguage() {
@@ -25,20 +26,31 @@ class CommonController {
     }
 
     public static function getCurrentPage() {
-        $currentPage = explode('/',$_SERVER['REQUEST_URI'])[1];
+        $currentPage = explode('/', $_SERVER['REQUEST_URI'])[1];
         if ($currentPage == 'index' || !$currentPage) {
             $currentPage = 'home';
         }
         return $currentPage;
     }
 
-    public static function sendMail($toAdress, $toName, $mailDataArr) {
+    public static function sendMail($recipientMail, $recipientName, $senderMail, $senderName, $mailSubject, $mailContent) {
         $mail = new Mail\Message();
-        $mail->setBody($mailDataArr);
-        $mail->setFrom('Freeaqingme@example.org', "Sender's name");
-        $mail->addTo($toAdress, $toName);
-        $mail->setSubject('TestSubject');
-        $transport = new Mail\Transport\Sendmail();
+        $mail->setBody($mailContent);
+        $mail->setFrom($senderMail, $senderName);
+        $mail->addTo($recipientMail, $recipientName);
+        print($senderName);
+        // $mail->setSubject("TESTTT");
+        //
+        $mail->setSubject($mailSubject);
+        $transport = new SendmailTransport();
         $transport->send($mail);
+    }
+
+    public static function translateFooterForm($mailDataArr, $recipientName='Cindy', $recipientMail='cindy50633@gmail.com') {
+        $senderName = $mailDataArr['senderName'];
+        $senderMail = $mailDataArr['senderMail'];
+        $mailSubject = $mailDataArr['mailSubject'];
+        $mailContent = $mailDataArr['messageText'];
+        return [$recipientMail, $recipientName, $senderMail, $senderName, $mailSubject, $mailContent];
     }
 }

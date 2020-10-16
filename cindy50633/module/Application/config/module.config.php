@@ -21,7 +21,7 @@ return [
                     'route'    => '/index[/:lang][/:end]',
                     'constraints' => [
                         'lang' => 'ja||en||zh',
-                        'end' => '/*'
+                        'end' => ''
                     ],
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
@@ -35,7 +35,7 @@ return [
                     'route'    => '[/:action][/:lang][/:end]',
                     'constraints' => [
                         'lang' => 'ja||en||zh',
-                        'end' => '/*'
+                        'end' => ''
                     ],
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
@@ -49,8 +49,8 @@ return [
                 'options' => [
                     'route'    => '/game[/:action][/:lang][/:end]',
                     'constraints' => [
-                        'lang' => 'ja||en||zh',
-                        'end' => '/*'
+                        'lang' => '/ja||en||zh/',
+                        'end' => ''
                     ],
                     'defaults' => [
                         'controller' => Controller\GameController::class,
