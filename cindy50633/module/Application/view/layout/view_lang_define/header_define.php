@@ -12,9 +12,13 @@ $navbarDefArr = [
         'urlRoute' => 'home',
         'action' => 'index'
     ],
+    // 'about' => [
+    //     'urlRoute' => 'application',
+    //     'action' => 'about'
+    // ],
     'about' => [
-        'urlRoute' => 'application',
-        'action' => 'about'
+        'urlRoute' => 'about',
+        'action' => 'index'
     ],
     // 'recommend' => [
     //     'urlRoute' => 'application',

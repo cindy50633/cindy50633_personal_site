@@ -1,0 +1,44 @@
+h2.title-text.resume-title-text {
+    text-align: center;
+    font-weight: bolder;
+}
+
+.resume-download {
+    position: relative;
+    left: 10px;
+    top: -3px;
+}
+
+.content-area.resume-content-area {
+    position: relative;
+
+    /* display: center; */
+    left: 80px;
+    /* text-align: center; */
+}
+
+.resume-content-group {
+    padding-top: 10px;
+    text-align: left;
+}
+
+.resume-content-group > h4 {
+    /* display: table-cell; */
+    font-weight: bold;
+}
+
+.resume-content-group > ul > li {
+    padding-top: 18px;
+}
+
+.resume-li-time {
+    position: absolute;
+    right: 150px;
+}
+
+.resume-li-detail {
+    position: relative;
+    left: 30px;
+    line-height: 1.3;
+    font-size: 16px;
+}

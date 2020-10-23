@@ -2,13 +2,49 @@
 use Common\CommonController;
 require_once getcwd() . '/module/Application/view/layout/view_lang_define/footer_define.php';
 require_once 'footer_form_modal.phtml';
+
+$fishSizeArr = [25, 35, 45, 55];
+$fishOpacityArr = [0.4, 0.5, 0.6, 0.7, 0.9];
+$fishRightHeightArr = [10, 25, 45, 60, 75, 90];
+$fishLeftHeightArr = [10, 25, 45, 60, 75, 90];
+$randRightFishNum = rand(3, 6);
+$randLeftFishNum = rand(3, 6);
 ?>
+
+<div class="right-edge">
+    <?php for ($i = 0; $i < $randRightFishNum; $i++) { ?>
+        <?php
+        $currentFishSize = $fishSizeArr[array_rand($fishSizeArr)];
+        $currentOpacity = $fishOpacityArr[array_rand($fishOpacityArr)];
+        $currentKey = array_rand($fishRightHeightArr);
+        $currentHeight = $fishRightHeightArr[$currentKey];
+        unset($fishRightHeightArr[$currentKey]);
+        ?>
+        <a class="icon" href="javascript:void(0);" style="position: inherit; top:<?= $currentHeight ?>%; transform: rotate(<?= rand(0, 365) ?>deg); opacity:<?= $currentOpacity ?>;">
+            <i class="fas fa-fish side-fish" style="font-size:<?= $currentFishSize ?>px;"></i>
+        </a>
+    <? } ?>
+</div>
+<div class="left-edge">
+    <?php for ($i = 0; $i < $randLeftFishNum; $i++) { ?>
+        <?php
+        $currentFishSize = $fishSizeArr[array_rand($fishSizeArr)];
+        $currentOpacity = $fishOpacityArr[array_rand($fishOpacityArr)];
+        $currentKey = array_rand($fishLeftHeightArr);
+        $currentHeight = $fishLeftHeightArr[$currentKey];
+        unset($fishLeftHeightArr[$currentKey]);
+        ?>
+        <a class="icon" href="javascript:void(0);" style="position: inherit; top:<?= $currentHeight ?>%; transform: rotate(<?= rand(0, 365) ?>deg); opacity:<?= $currentOpacity ?>;">
+            <i class="fas fa-fish side-fish" style="font-size:<?= $currentFishSize ?>px;"></i>
+        </a>
+    <? } ?>
+</div>
 
 <span class="fixed-contact-bottom">
     <div class="btn-group" role="group" aria-label="Contact Button Group">
-        <button type="button" class="popup btn btn-secondary" onclick="popup()">
+        <button type="button" class="popup btn btn-orange" onclick="popup()">
             <?= $contactBottomTitle[$this->langFlag] ?>
-            <span class="popuptext" id="popup-area">
+            <span class="popuptext btn-orange" id="popup-area">
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <span class="contact-icon-group" data-toggle="tooltip" data-placement="top" title="Facebook">
                         <a class="icon" href="http://m.me/cindy50633" target="_blank">
@@ -28,7 +64,7 @@ require_once 'footer_form_modal.phtml';
                 </div>
             </span>
         </button>
-        <button type="button" class="btn btn-secondary p-1">
+        <button type="button" class="btn btn-orange p-1">
             <span class="contact-icon-group" data-toggle="tooltip" data-placement="bottom" title="Github">
                 <a class="icon" href="https://github.com/cindy50633" target="_blank">
                     <i class="fab fa-github" style="font-size:45px"></i>
@@ -70,7 +106,33 @@ require_once 'footer_form_modal.phtml';
     // })
 
     $(function () {
-        // $('#myGithub').tooltip();
         $('.contact-icon-group').tooltip();
+
+        $('.side-fish').on('click', function() {
+            let random_boolean = Math.random() >= 0.5;
+            let fish_height = $(this).parent().height();
+            let fish_weight = $(this).parent().width();
+            if ($(this).hasClass('fa-fish')) {
+                $(this).removeClass('fa-fish');
+                if (random_boolean) {
+                    $(this).addClass('fa-sushi-light');
+                } else {
+                    $(this).addClass('fa-sushi-dark');
+                }
+                $(this).height(fish_height).width(fish_weight);
+                return;
+            }
+            if ($(this).hasClass('fa-sushi-light')) {
+                $(this).removeClass('fa-sushi-light');
+                $(this).addClass('fa-fishbone-light');
+            }
+            if ($(this).hasClass('fa-sushi-dark')) {
+                $(this).removeClass('fa-sushi-dark');
+                $(this).addClass('fa-fishbone-dark');
+            }
+            $(this).height(fish_height).width(fish_weight);
+            $(this).removeClass('side-fish');
+            return;
+        });
     });
 </script>

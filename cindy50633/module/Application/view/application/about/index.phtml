@@ -1,0 +1,168 @@
+<style>
+@keyframes delayShow {
+    to {
+        visibility: visible;
+    }
+}
+
+.delay-show-hello {
+    visibility: hidden;
+    animation: 0s linear 1s forwards delayShow;
+}
+
+.delay-show-options {
+    visibility: hidden;
+    animation: 0s linear 4s forwards delayShow;
+}
+
+.chatbox-msg-container {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    /* border: 2px solid LightSalmon;
+    background-color: DarkSalmon; */
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    color: Snow;
+}
+
+.chatbox-msg-container.msg-fish {
+    left: 5px;
+    border: 2px solid LightSalmon;
+    background-color: DarkSalmon;
+}
+
+.chatbox-msg-container.visitor {
+    left: 50%;
+    border-color: Orange;
+    background-color: DarkOrange;
+}
+
+.chat-fish{
+    position: relative;
+    top: -20px;
+    display: inline-block;
+    width: 60px;
+}
+
+.chatbox-msg-container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time {
+    position: relative;
+    left: 88%;
+    /* margin-right: 0px; */
+    /* color: Snow; */
+}
+
+.answer-button-group {
+    position: relative;
+    /* margin-top: 20px; */
+    left: 75%;
+    /* padding-right:20px; */
+}
+
+.answer-button-group > div {
+    margin-top:16px;
+}
+
+.last-msg {
+    margin-bottom: 150px;
+}
+
+.selected {
+    display: none;
+}
+</style>
+<?php
+$now = new DateTime('now');
+?>
+<div class="chatbox-container last-msg delay-show-hello">
+    <img src="/img/about_chat_fish.svg" class="rounded-circle chat-fish" alt="Fish">
+    <div class="chatbox-msg-container msg-fish">
+        <div>
+        </div>
+        <p>Hello! What kinds of information you want to know about Cindy?</p>
+        <span class="time time-hello"></span>
+    </div>
+</div>
+
+<div class="answer-button-group delay-show-options">
+    <div>
+        <button type="button" class="btn btn-orange option" data-option="casual">
+            I want to know her in a casual way!
+        </button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-orange option" data-option="resume">
+            Just give me resume!
+        </button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-orange option" data-option="who">
+            Who are you?
+        </button>
+    </div>
+</div>
+<script>
+    $(function() {
+        var now = new Date();
+        function writeCurrentTime() {
+            let current_hour = String(now.getHours());
+            let current_minute = String(now.getMinutes());
+            let current_time = current_hour.padStart(2, '0') + ':' + current_minute.padStart(2, '0');
+            return current_time;
+        }
+        $('.time-hello').html(writeCurrentTime());
+
+        function writeQuestion(question) {
+            $('.last-msg').append($('<div class="chatbox-container new-last-msg"><div class="chatbox-msg-container visitor"><p>'+ question + '</p><span class="time">' + writeCurrentTime() + '</span></div></div>'));
+            $('.last-msg').removeClass('last-msg');
+            $('.new-last-msg').addClass('last-msg');
+            $('.new-last-msg').removeClass('new-last-msg');
+        }
+
+        function writeAnswer(answer) {
+            $('.last-msg').append($('<div class="chatbox-container new-last-msg"><img src="/img/about_chat_fish.svg" class="rounded-circle chat-fish" alt="Fish"><div class="chatbox-msg-container msg-fish"><p>'+ answer + '</p><span class="time">' + writeCurrentTime() + '</span></div></div>'));
+            $('.last-msg').removeClass('last-msg');
+            $('.new-last-msg').addClass('last-msg');
+            $('.new-last-msg').removeClass('new-last-msg');
+        }
+
+        $('.option').on('click', function() {
+            $('.answer-button-group').hide();
+            switch($(this).data('option')) {
+                case 'casual':
+                    writeQuestion($(this).html());
+                    setTimeout(function() {
+                        writeAnswer('OK! Wait a second! <br/> I will take you there!');
+                        setTimeout(function() {
+                            window.location.href = '/about/traits/en';
+                        }, 3000);
+                    }, 2000);
+                    break;
+                case 'resume':
+                    writeQuestion($(this).html());
+                    setTimeout(function() {
+                        writeAnswer('OK! Wait a second! <br/> I will take you there!');
+                        setTimeout(function() {
+                            window.location.href = '/about/resume/en';
+                        }, 3000);
+                    }, 2000);
+                    break;
+                case 'who':
+                    $(this).parent().addClass('selected');
+                    writeQuestion($(this).html());
+                    setTimeout(function() {
+                        writeAnswer("I am Fish! Cindy's best friend!");
+                        $('.answer-button-group').show();
+                    }, 2000);
+                    break;
+            }
+        });
+    });
+</script>

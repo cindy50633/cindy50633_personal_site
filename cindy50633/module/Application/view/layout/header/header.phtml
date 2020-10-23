@@ -3,14 +3,14 @@ use Common\CommonController;
 require_once getcwd() . '/module/Application/view/layout/view_lang_define/header_define.php';
 ?>
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="<?= $this->url('home', ['action' => 'index', 'lang' => $this->langFlag]) ?>">
-                <img src="<?= $this->basePath('img/navbar_smile.svg') ?>" height="28" alt="Cindy's Website"/>
+                <i class="fas fa-fish nav-fish" style="font-size:28px;"></i>
                 &nbsp;
                 Cindy's Website
             </a>
@@ -60,8 +60,46 @@ require_once getcwd() . '/module/Application/view/layout/view_lang_define/header
     </div>
 </nav>
 
+<!-- Modal -->
+<div class="modal fade"  id="introModal" tabindex="-1" role="dialog" aria-labelledby="introModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <p id="introText"></p>
+        <button class="btn btn-secondary">hihi
+        </button>
+    </div>
+</div>
+
+
 <script>
     $(function() {
         $('.dropdown-toggle').dropdown();
+        $('.navbar-brand').hover(function() {
+            $('.nav-fish').toggleClass('rotate');
+        });
+
+        // $('#introModal').modal('show');
+        $('.modal-backdrop').addClass('background-backdrop');
+        $('.modal-backdrop').css("opacity", "0.9");
+        $('.modal-backdrop').css("background-color", "black");
+        var i = 0;
+        var txt = 'Hi! I am Cindy.' + ' I am a developer.';
+        var current_txt = '';
+        var speed = 160;
+        typeWriter();
+        // function typeWriter() {
+        //   if (i < txt.length) {
+        //     document.getElementById("introText").innerHTML += txt.charAt(i);
+        //     i++;
+        //     setTimeout(typeWriter, speed);
+        //   }
+        // }
+        function typeWriter() {
+            if (i < txt.length) {
+                current_txt = $('#introText').html();
+                $('#introText').html(current_txt + txt.charAt(i));
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
     });
 </script>

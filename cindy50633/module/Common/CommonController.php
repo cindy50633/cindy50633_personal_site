@@ -8,7 +8,7 @@ class CommonController {
     public static function getUserLanguage() {
         $currentUrl = $_SERVER['REQUEST_URI'];
         $acceptLang = ['en', 'ja', 'zh'];
-        if (basename($currentUrl)) {
+        if (in_array(basename($currentUrl), $acceptLang)) {
             $langFlag = basename($currentUrl);
         } else {
             $langFlag = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);

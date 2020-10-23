@@ -1,0 +1,117 @@
+.card-row {
+    display: table;
+    width: 90%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 40px; /*Optional*/
+}
+.card {
+    display: table-cell;
+    border: 0px;
+    /* border-color: Snow; */
+    box-shadow: inset 0 0 4px Snow, -2px 6px 10px Snow;
+    transition: 0.3s;
+    width: 40%;
+    /* background-color: White; */
+    background-color: Black;
+    color: OldLace;
+    /* color: Black; */
+}
+
+.card:hover {
+    box-shadow: inset 0 0 4px Snow, -2px 10px 18px Snow;
+}
+
+.subject-card {
+    /* position: relative; */
+    text-align: center;
+    padding: 20% 5%;
+}
+
+.subject-card > :first-child  {
+    display: block;
+    margin-bottom: 10%;
+    font-weight: bold;
+}
+
+.fa-tanzaku{
+    content: '';
+    display: inline-block;
+    background: url('/img/recommend_tanzaku.svg');
+    background-size: cover;
+    /* opacity: 0.6; */
+    width: 36px;
+    height: 36px;
+}
+
+.fa-sakura{
+    content: '';
+    display: inline-block;
+    background: url('/img/recommend_sakura.svg');
+    background-size: cover;
+    /* opacity: 0.6; */
+    width: 36px;
+    height: 36px;
+}
+
+.fa-kimono{
+    content: '';
+    display: inline-block;
+    background: url('/img/recommend_kimono.svg');
+    background-size: cover;
+    /* opacity: 0.6; */
+    width: 40px;
+    height: 36px;
+}
+
+.card-popup {
+    visibility: hidden;
+    position: absolute;
+    /* margin: -50px 0 0 -100px; */
+    width: 65%;
+    /* height: 80%; */
+    /* background-color: transparent; */
+    backdrop-filter: blur(30px);
+    /* border: 5px solid silver; */
+    /* border-radius: 5px; */
+    border: 30px solid transparent;
+    padding: 15px;
+    /* border-image: url('/img/math_border.svg') round; */
+    /* border-image: url('/img/physics_border.svg') round; */
+    /* border-image-slice: 26%; */
+    /* border-image-repeat: repeat; */
+    /* color: #fff; */
+    /* text-align: center; */
+    z-index: 1040;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.card-popup.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+.recommend-block {
+    position: relative;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    left: 15%;
+    /* text-align: left; */
+}
+
+.recommend-item-group {
+    /* position: relative;
+
+    text-align: left; */
+}

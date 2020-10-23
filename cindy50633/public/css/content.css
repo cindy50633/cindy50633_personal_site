@@ -1,7 +1,8 @@
 body {
     background:
-        url(/img/fish_side1.svg),
-        url(/img/fish_side2.svg);
+        url('/img/fish_side1_orange.svg'),
+        url('/img/fish_side2_orange.svg'),
+        linear-gradient(to right, Black, Black);
     background-repeat:
         repeat-y,
         repeat-y;
@@ -14,44 +15,61 @@ div.title-area {
     margin-top: 25px;
     margin-left: 80px;
 }
+
 h2.title-text {
     text-align: left;
-    color: dimgrey;
+    /* color: dimgrey; */
+    /* color: WhiteSmoke; */
+    color: PapayaWhip;
+    /* color: White; */
+
 }
+
 div.content-area {
     margin-top: 10px;
     margin-left: 120px;
-    line-height: 1.5;
-    font-size: 18px;
-    color: grey;
+    line-height: 1.6;
+    font-size: 20px;
+    /* color: grey; */
+    color: OldLace;
+    /* color: WhiteSmoke; */
 }
+
+div.content-area a {
+    color: salmon;
+}
+
+div.content-area a:hover {
+    color: OrangeRed;
+}
+
+div.content-area a:focus {
+    color: Red;
+}
+
 h4 {
     display: inline;
 }
+
 ul.content {
     margin-top: 0;
     padding-inline-start: 30px;
 }
+
 li.content {
     /* line-height: 1; */
     /* padding: -5px -50px; */
     list-style-type: none;
 }
 
-/* a:link {
-  color: wheat;
+.right-edge {
+    position: fixed;
+    right: 80px;
+    /* opacity: 0.4; */
 }
-a:visited {
-  color: tan;
-}
-a:hover {
-  color: wheat;
-  font-weight: bold;
-}
-a:active {
-  color: wheat;
-  font-weight: bold;
-} */
-.link-title {
 
+.left-edge {
+    position: fixed;
+    left: 25px;
+    /* opacity: 0.4; */
 }

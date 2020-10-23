@@ -1,0 +1,140 @@
+<style>
+/* .chatbox-container {
+    display: center;
+} */
+
+.chatbox-msg-container {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    /* border: 2px solid LightSalmon;
+    background-color: DarkSalmon; */
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    color: Snow;
+}
+
+.chatbox-msg-container.msg-fish {
+    left: 5px;
+    border: 2px solid LightSalmon;
+    background-color: DarkSalmon;
+}
+
+.chatbox-msg-container.visitor {
+    left: 50%;
+    border-color: Orange;
+    background-color: DarkOrange;
+}
+
+.chat-fish{
+    position: relative;
+    top: -20px;
+    display: inline-block;
+    width: 60px;
+}
+
+.chatbox-msg-container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time {
+    position: relative;
+    left: 88%;
+    /* margin-right: 0px; */
+    /* color: Snow; */
+}
+
+.answer-button-group {
+    position: absolute;
+    left: 58%;
+    /* padding-right:20px; */
+}
+
+.answer-button-group > button {
+    margin-right:16px;
+}
+
+.answer-who, .ask-who {
+    visibility: hidden;
+}
+</style>
+<?php
+$now = new DateTime('now');
+?>
+<div class="chatbox-container">
+    <img src="/img/about_chat_fish.svg" class="rounded-circle chat-fish" alt="Fish">
+    <div class="chatbox-msg-container msg-fish">
+        <div>
+        </div>
+        <p>Hello! What kinds of information you want to know about Cindy?</p>
+        <span class="time time-hello"></span>
+    </div>
+</div>
+
+
+<div class="chatbox-container ask-who">
+    <div class="chatbox-msg-container visitor">
+      <p class="ask-who">Who are you?</p>
+      <span class="time time-ask-who"></span>
+    </div>
+</div>
+<div class="chatbox-container answer-who">
+    <img src="/img/about_chat_fish.svg" class="rounded-circle chat-fish" alt="Fish">
+    <div class="chatbox-msg-container msg-fish">
+      <p class="answer-who">I am fish. Cindy's best friend.</p>
+      <span class="time time-answer-who"></span>
+    </div>
+</div>
+<div class="answer-button-group">
+    <button type="button" class="btn btn-orange option btn-who" data-option="who">
+        Who are you?
+    </button>
+    <button type="button" class="btn btn-orange option" data-option="casual">
+        In a casual way!
+    </button>
+    <button type="button" class="btn btn-orange option" data-option="resume">
+        Give me resume!
+    </button>
+</div>
+<script>
+    $(function() {
+        writeQuestion('QWQQQQQQQQ');
+        var now = new Date();
+        function writeCurrentTime(target) {
+            let current_hour = String(now.getHours());
+            let current_minute = String(now.getMinutes());
+            let current_time = current_hour.padStart(2, '0') + ':' + current_minute.padStart(2, '0');
+            target.html(current_time);
+        }
+        writeCurrentTime($('.time-hello'));
+
+        function writeQuestion(question) {
+            $('.ask-who').append($('<div class="chatbox-container"><div class="chatbox-msg-container visitor"><p>'+ question + '</p><span class="time"></span></div></div>'));
+        }
+
+        $('.option').on('click', function() {
+            $('.answer-button-group').hide();
+            switch($(this).data('option')) {
+                case 'casual':
+                    window.location.href = '/about/traits/en';
+                    break;
+                case 'resume':
+                    window.location.href = '/about/resume/en';
+                    break;
+                case 'who':
+                    writeCurrentTime($('.time-ask-who'));
+                    $('.ask-who').css('visibility', 'visible');
+                    setTimeout(function() {
+                        writeCurrentTime($('.time-answer-who'));
+                        $('.answer-who').css('visibility', 'visible');
+                        $('.answer-button-group').show();
+                        $('.btn-who').hide();
+                    }, 2000);
+                    break;
+            }
+        });
+    });
+</script>

@@ -6,6 +6,17 @@
     "pompompurin": "https://www.sanrio.com/categories/pompompurin",
     "Github": "https://github.com/cindy50633",
     "Stack Overflow": "https://stackoverflow.com/",
-    "ポムポムプリン", "https://www.sanrio.co.jp/character/pompompurin/",
-    "アインシュタイン", "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3"
+    "ポムポムプリン": "https://www.sanrio.co.jp/character/pompompurin/",
+    "アインシュタイン": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3",
+    "Distributed Systems Course": "https://www.youtube.com/channel/UC-X5TC3ir8_8pi0ElvVXnFQ",
+    "Ryan Riley's Channel": "https://www.youtube.com/channel/UCZy1TmqIMQ4perExQerm5bQ",
+    "Abdul Bari's Channel": "https://www.youtube.com/channel/UCZCFT11CWBi3MHNlGf019nw",
+    "Brian Douglas' Channel": "https://www.youtube.com/channel/UCq0imsn84ShAe9PBOFnoIrg",
+    "3Blue1Brown's Bitcoin Course": "https://www.youtube.com/watch?v=bBC-nXj3Ng4&t=6s",
+    "Bitcoin Thesis": "https://bitcoin.org/bitcoin.pdf",
+    "Automate the Boring Stuff with Python": "https://automatetheboringstuff.com/",
+    "Data Science from Scratch": "https://www.oreilly.com/library/view/data-science-from/9781492041122/",
+    "Introduction to Computation and Programming Using Python": "https://www.amazon.com/gp/product/0262529629/ref=nosim/?tag=mitopencourse-20",
+    "Cobham's thesis": "https://www.cs.toronto.edu/~sacook/homepage/cobham_intrinsic.pdf"
+
 }

@@ -15,7 +15,7 @@ class GameController extends AbstractActionController {
     public function __construct() {
         $this->langFlag = CommonController::getUserLanguage();
     }
-    public function gameAction() {
+    public function indexAction() {
         $this->layout()->langFlag = $this->langFlag;
         return new ViewModel([
             'langFlag' => $this->langFlag

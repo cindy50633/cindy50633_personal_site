@@ -13,38 +13,23 @@ use Laminas\View\Renderer\PhpRenderer;
 use Laminas\View\Resolver;
 use Common\CommonController;
 
-class IndexController extends AbstractActionController {
+class AboutController extends AbstractActionController {
     public function __construct() {
         $this->langFlag = CommonController::getUserLanguage();
     }
     public function indexAction() {
         $this->layout()->langFlag = $this->langFlag;
-        $view = new ViewModel([
+        return new ViewModel([
             'langFlag' => $this->langFlag
         ]);
-        // $view->setTemplate('/application/index/about/ja/index.phtml');
-        // $this->_helper->viewRenderer('/about/ja/index.phtml');
-        return $view;
     }
-    // public function aboutAction() {
-    //     $this->layout()->langFlag = $this->langFlag;
-    //     return new ViewModel([
-    //         'langFlag' => $this->langFlag
-    //     ]);
-    // }
-    public function linksAction() {
+    public function resumeAction() {
         $this->layout()->langFlag = $this->langFlag;
         return new ViewModel([
             'langFlag' => $this->langFlag
         ]);
     }
-    public function recommendAction() {
-        $this->layout()->langFlag = $this->langFlag;
-        return new ViewModel([
-            'langFlag' => $this->langFlag
-        ]);
-    }
-    public function accomplishmentAction() {
+    public function traitsAction() {
         $this->layout()->langFlag = $this->langFlag;
         return new ViewModel([
             'langFlag' => $this->langFlag

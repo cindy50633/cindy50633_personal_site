@@ -1,0 +1,21 @@
+{
+    "Learning from Youtubers": [
+        "Neso Academy",
+        "Abdul Bari's Channel",
+        "Brian Douglas' Channel",
+        "Distributed Systems Course",
+        "Ryan Riley's Channel",
+        "3Blue1Brown's Bitcoin Course"
+    ],
+    "Learning from Books": [
+        "Introduction to Algorithms(CLRS)",
+        "Automate the Boring Stuff with Python",
+        "Introduction to Computation and Programming Using Python",
+        "Data Science from Scratch"
+    ],
+    "Learning from Thesis": [
+        "Bitcoin Thesis",
+        "The Byzantine Generals Problem",
+        "Cobham's thesis"
+    ]
+}

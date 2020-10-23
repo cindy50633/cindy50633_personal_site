@@ -1,0 +1,31 @@
+<?php
+require_once 'view_lang_define/content_define.php';
+$targetTextPath = getcwd() . '/public/data/' . $this->langFlag . '/about_me.txt';
+$conditionsPath = getcwd() . '/public/data/keyword_link_pair.txt';
+$aboutDataText = $this->contentHelper($targetTextPath, $conditionsPath);
+$aboutDataArr = eval('return ' . $aboutDataText . ';');
+?>
+<div class="title-area">
+    <h2 class="title-text">
+        <b>
+            <?= $aboutTitle[$this->langFlag] ?>
+        </b>
+    </h2>
+</div>
+<br/>
+<div class="content-area">
+    <?php foreach ($aboutDataArr as $titleArr => $itemArr) { ?>
+        <h4>
+            <b>
+                <?= $titleArr ?>
+            </b>
+        </h4>
+        <ul class="content">
+            <?php foreach ($itemArr as $item) { ?>
+                <li class="content">
+                    <?= $item ?>
+                </li>
+            <?php } ?>
+        </ul>
+    <?php } ?>
+</div>

@@ -1,0 +1,27 @@
+<?php
+$conditionsPath = getcwd() . '/public/data/keyword_link_pair.txt';
+$recommendListTextPath = getcwd() . '/public/data/en/recommend/computer_science.txt';
+// $recommendListText = file_get_contents($recommendListTextPath);
+$recommendListText = $this->contentHelper($recommendListTextPath, $conditionsPath);
+$recommendDataArr = json_decode($recommendListText, true);
+
+// $recommendDataArr = 'return' . $recommendDataText;
+// $recommendDataArr = $$recommendDataText;
+?>
+
+<?php foreach ($recommendDataArr as $typeTitleStr => $itemArr) { ?>
+    <div  class="recommend-block">
+        <h4>
+            <b>
+            <?= $typeTitleStr ?>
+            </b>
+        </h4>
+        <ul class="recommend-item-group">
+            <?php foreach ($itemArr as $item) { ?>
+                <li class="content">
+                    <?= $item ?>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
+<?php } ?>

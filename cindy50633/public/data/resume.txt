@@ -1,0 +1,65 @@
+Hsin-Hua Yang
+222-0001 Yokohama, Kanagawa
+cindy50633@gmail.com
+080-8906-6423(JP), +886-983-683-003(TW)
+
+EDUCATION
+˙BS, Electrophysics, National Chiao Tung University, Taiwan	2016
+
+EXPERIENCE
+˙Undergraduate Research	2014－2015
+Under Associate Professor Jung-Jung Su, Department of Elctrophysics, NCTU
+Subject: many-body system
+o	Learn operation of MATLAB
+o	Understand problem-solving skills
+o	Acquire communication skills and systematic thinking.
+˙Tutor of senior high school student in Mathematics and Physics	2013－2017
+˙A member of student association	2013－2014
+Conduct several activities
+Get lots of experiences such as time management, cooperation skills
+˙A team member in volleyball club	2012－2015
+
+EMPLOYMENT
+Elo Touch Solutions, Taiwan	     2016－2018
+Test Engineer
+o	Training for touch principles in U.S. headquarter
+o	Survey purchase of new linear test machine
+o	Write and compile document for directions in test procedures
+o	Define test specs
+o	Guide for company booth in COMPUTEX TAIPEI 2017 and 2018
+o	Code by python for processing csv files into visual graphs
+o	Cooperate with team members
+o	Help interviews for new colleague
+
+LYC株式会社, Japan	    2018－2019, 06
+Programmer
+o	Programming with Python for dealing json files
+o	Execute python scripts in remote Linux server system
+o	Familiarize commands in SQL (MSSQL, DB2)
+o	Cooperate with colleagues in Japanese
+
+IQBETA LLC., Japan                                                                                                    2019, 07－2020, 04
+Internship
+o	Collect test data for face recognition project
+o	Analyze test results for face recognition project
+o	Write python code for visualizing results
+
+いえらぶGROUPJapan                                                                                                  2020, 02－current
+Part-time in homepage develop team
+o	Develop and maintain websites for real estate by php, js, html
+
+SKILL
+˙Python, java, php, javascript
+˙Git, SQL
+˙Kafka and Elasticsearch using experience
+˙Negotiation, Critical-thinking, Problem-Solving
+˙Time Management, Presentation skills
+
+LANGUAGE
+˙Mandarin: Native
+˙English: Fluent
+˙Japanese: Intermediate
+CERTIFICATE
+˙ JLPT N2
+2018
+˙ TOEFL iBT Test: 98	2019

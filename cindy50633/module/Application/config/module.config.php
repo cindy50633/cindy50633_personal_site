@@ -44,6 +44,21 @@ return [
                     ],
                 ],
             ],
+            'about' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/about[/:action][/:lang][/:end]',
+                    'constraints' => [
+                        'lang' => '/ja||en||zh/',
+                        'end' => ''
+                    ],
+                    'defaults' => [
+                        'controller' => Controller\AboutController::class,
+                        'action' => 'about',
+                        // 'lang' => 'en'
+                    ],
+                ],
+            ],
             'game' => [
                 'type'    => Segment::class,
                 'options' => [
@@ -64,6 +79,7 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
+            Controller\AboutController::class => InvokableFactory::class,
             Controller\GameController::class => InvokableFactory::class,
         ],
     ],

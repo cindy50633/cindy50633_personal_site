@@ -3,7 +3,8 @@ require_once 'view_lang_define/content_define.php';
 $targetTextPath = getcwd() . '/public/data/' . $this->langFlag . '/home_intro.txt';
 $conditionsPath = getcwd() . '/public/data/keyword_link_pair.txt';
 ?>
-
+<canvas>
+</canvas>
 <div class="title-area">
     <h2 class="title-text">
         <?= $indexTitle[$this->langFlag] ?>
@@ -13,77 +14,3 @@ $conditionsPath = getcwd() . '/public/data/keyword_link_pair.txt';
 <div class="content-area">
     <?= nl2br($this->contentHelper($targetTextPath, $conditionsPath)) ?>
 </div>
-
-
-<style>
-#container {
-  position: fixed
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background: yellow;
-}
-.animate {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-}
-</style>
-
-<div id="container">
-    <i class="fas fa-fish animate" style="font-size:36px"></i>
-</div>
-
-
-<script>
-    // function unitRandomMove(pos, call_times) {
-    //     var random_boolean = Math.random() >= 0.2;
-    //     if (random_boolean) {
-    //         pos++;
-    //     } else {
-    //         pos--;
-    //     }
-    //     return pos;
-    // }
-
-    var forward = true;
-    var backword = false;
-    var call_times = 0;
-    var left = 0;
-    var right = 0;
-    var top = 0;
-    var bottom = 0;
-    function unitRandomMove(pos, forward, backword, call_times) {
-        if (call_times > 200) {
-            forward = Math.random() < 0.3;
-            backword = Math.random() > 0.7;
-            $('.animate').css('transform', 'rotate(20deg)');
-            call_times = 0;
-        }
-        if (forward) {
-            pos++;
-        }
-        if (backword) {//alert('in');
-            pos--;//alert(pos);
-        }
-        call_times++;
-        return [pos, forward, backword, call_times];
-    }
-    $(function() {
-        var id = setInterval(randomMove, 10);
-        function randomMove() {
-            if (left == 10000) {
-            // clearInterval(id);
-        } else {
-                [left, forward, backword, call_times] = unitRandomMove(left, forward, backword, call_times);
-                // right = unitRandomMove(right);
-                // top = unitRandomMove(top);
-                // bottom = unitRandomMove(bottom);
-                $('.animate').css('left', left + "px");
-                // $('.animate').css('right', right + "px");
-                // $('.animate').css('top', top + "px");
-                // $('.animate').css('bottom', bottom + "px");
-          }
-        }
-    });
-</script>

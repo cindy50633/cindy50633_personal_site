@@ -1,7 +1,7 @@
 <?= $this->doctype() ?>
 <?php
-if ($_SERVER['REQUEST_URI'] == '/') {
-    header('Location:' . '/index');
+if ($_SERVER['REQUEST_URI'] == '/' || basename($_SERVER['REQUEST_URI']) == 'index') {
+    header('Location:' . '/index' . '/' . $this->langFlag);
     exit();
 }
 require_once 'footer/footer_form_process.php';
@@ -19,22 +19,40 @@ require_once 'footer/footer_form_process.php';
         <!-- Le styles -->
         <?php
         if (basename(dirname($_SERVER['REQUEST_URI'])) == 'game') {
-            $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_smile.svg'])
+            $this->headLink(['rel' => 'shortcut icon',
+                             'type' => 'image/vnd.microsoft.icon',
+                             'href' => $this->basePath() . '/img/site_fish.svg',
+                             'sizes' => '30x16'])
                 ->prependStylesheet($this->basePath('css/game.css'));
             // $this->inlineScript()
             //     ->prependFile($this->basePath('js/life.js'));
         }
+        if (basename(dirname($_SERVER['REQUEST_URI'])) == 'resume') {
+            $this->headLink(['rel' => 'shortcut icon',
+                             'type' => 'image/vnd.microsoft.icon',
+                             'href' => $this->basePath() . '/img/site_fish.svg',
+                             'sizes' => '30x16'])
+                ->prependStylesheet($this->basePath('css/about_resume.css'));
+            // $this->inlineScript()
+            //     ->prependFile($this->basePath('js/life.js'));
+        }
+        if (basename(dirname($_SERVER['REQUEST_URI']))) {
+            $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_fish.svg','sizes' => '30x30'])
+                ->prependStylesheet($this->basePath('css/recommend.css'));
+        }
         if (basename($_SERVER['REQUEST_URI']) == 'tictactoe') {
-            $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_smile.svg'])
+            $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_fish.svg','sizes' => '30x30'])
                 ->prependStylesheet($this->basePath('css/game.css'));
         }
         ?>
 
-        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_smile.svg'])
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/site_fish.svg','sizes' => '30x30'])
             ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/footer.css'))
+            ->prependStylesheet($this->basePath('css/header.css'))
             ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
             ->prependStylesheet($this->basePath('css/content.css'))
-            ->prependStylesheet($this->basePath('css/footer.css'))
+            // ->prependStylesheet($this->basePath('css/footer.css'))
         ?>
 
         <!-- Scripts -->
@@ -53,7 +71,7 @@ require_once 'footer/footer_form_process.php';
             <?= $this->content ?>
             <br/>
             <br/>
-            <hr>
+            <hr style="border:0.1px dotted DarkOrange;">
             <?= $this->partial('footer/footer.phtml') ?>
         </div>
         <?= $this->inlineScript() ?>

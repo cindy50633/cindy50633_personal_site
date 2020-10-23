@@ -1,27 +1,110 @@
 <?php
-$targetTextPath = getcwd() . '/public/data/recommend.txt';
-$conditionsPath = getcwd() . '/public/data/keyword_link_pair.txt';
-$linkDataText = $this->contentHelper($targetTextPath, $conditionsPath);
-$linkDataArr = eval('return ' . $linkDataText . ';');
+require_once 'view_lang_define/content_define.php';
 ?>
-<br/>
-<ul class="nav nav-tabs" id="recommendTab" role="tablist">
-    <?php foreach ($linkDataArr as $titleArr => $itemArr) { ?>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#<?= $titleArr ?>" role="tab" href="#">
-                <?= $titleArr ?>
-            </a>
-          </li>
-      <?php } ?>
-</ul>
-<div class="tab-content" id="recommendTabContent">
-    <?php foreach ($linkDataArr as $titleArr => $itemArr) { ?>
-        <div class="tab-pane fade" id="<?= $titleArr ?>" role="tabpanel">
-            building
-        </div>
-    <?php } ?>
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">building</div>
-    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">building</div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">building</div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">building</div>
+<div class="title-area">
+    <h2 class="title-text">
+        Recommend Resources
+    </h2>
 </div>
+
+<div class="content-area">
+    <div class="card-popup">
+        <?php require_once 'recommend_subcontent.phtml'; ?>
+    </div>
+    <div class="card-row">
+        <div class="card">
+            <div class="subject-card" data-subject="math">
+                <h4>
+                    <?= $recommendSubject['math'][$this->langFlag] ?>
+                </h4>
+                <i class="fas fa-plus" style="font-size:36px"></i>
+                <i class="fas fa-minus" style="font-size:36px"></i>
+                <i class="fas fa-times" style="font-size:36px"></i>
+                <i class="fas fa-divide" style="font-size:36px"></i>
+            </div>
+        </div>
+        <div class="card">
+            <div class="subject-card" data-subject="computer_science">
+                <h4>
+                    <?= $recommendSubject['computer_science'][$this->langFlag] ?>
+                </h4>
+                <i class="fas fa-database" style="font-size:36px"></i>
+                <i class="fas fa-desktop" style="font-size:36px"></i>
+                <i class="fas fa-microchip" style="font-size:36px"></i>
+                <i class="fas fa-server" style="font-size:36px"></i>
+            </div>
+        </div>
+        <div class="card">
+            <div class="subject-card" data-subject="physics">
+                <h4>
+                    <?= $recommendSubject['physics'][$this->langFlag] ?>
+                </h4>
+                <i class="fas fa-magnet" style="font-size:36px"></i>
+                <i class="fas fa-atom" style="font-size:36px"></i>
+                <i class="fas fa-radiation" style="font-size:36px"></i>
+                <i class="fas fa-skull-crossbones" style="font-size:36px"></i>
+            </div>
+        </div>
+    </div>
+    <div class="card-row">
+        <div class="card">
+            <div class="subject-card" data-subject="programming">
+                <h4>
+                    <?= $recommendSubject['programming'][$this->langFlag] ?>
+                </h4>
+                <i class="fas fa-code-branch" style="font-size:36px"></i>
+                <i class="fas fa-bug" style="font-size:36px"></i>
+                <i class="fas fa-laptop-code" style="font-size:36px"></i>
+                <i class="fas fa-coffee" style="font-size:36px"></i>
+            </div>
+        </div>
+        <div class="card">
+            <div class="subject-card" data-subject="japanese">
+                <h4>
+                    <?= $recommendSubject['japanese'][$this->langFlag] ?>
+                </h4>
+                <i class="fas" style="font-size:36px">お</i>
+                <i class="fas fa-kimono" style="font-size:36px"></i>
+                <i class="fas fa-tanzaku" style="font-size:36px"></i>
+                <i class="fas fa-sakura" style="font-size:36px"></i>
+            </div>
+        </div>
+        <div class="card">
+            <div class="subject-card" data-subject="english">
+                <h4>
+                    <?= $recommendSubject['english'][$this->langFlag] ?>
+                </h4>
+                <i class="fas" style="font-size:36px">A</i>
+                <i class="fas fa-bacon" style="font-size:36px"></i>
+                <i class="fas fa-hotdog" style="font-size:36px"></i>
+                <i class="fas fa-hamburger" style="font-size:36px"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        $('.subject-card').on('click', function() {
+            var clicked_subject = $(this).data('subject');
+            $('.card-popup').css('border', '20px solid transparent');
+            if (clicked_subject == 'japanese') {
+                $('.card-popup').css('border-image', "url('/img/border_" + 'japanese' + "_black.svg') round");
+                $('.card-popup').css('border-image-slice', '21%');
+                // $('.card-popup').css('border-image-width: 30px;');
+            } else {
+                $('.card-popup').css('border-image', "url('/img/border_" + clicked_subject + "_black.svg') round");
+                $('.card-popup').css('border-image-slice', '26%');
+                // $('.card-popup').css('border-image-width: 30px;');
+            }
+            $('.card-popup').addClass('show');
+        })
+        $(document).mouseup(function(e) {
+            var $card_popup = $('.card-popup');
+            // if the target of the click isn't the $card_popup nor a descendant of the $card_popup
+            if (!$card_popup.is(e.target) && $card_popup.has(e.target).length === 0) {
+                $('.card-popup').removeClass("show");
+            }
+        });
+    });
+</script>
